@@ -13,8 +13,6 @@ TripsUsers: has a boolean to indicate if the user is an administrator
 Users: Belongs to many
 Tickets: Has many
 Days: Has many
-Budget: Has One
-Hotels: Has Many
 
 Tickets:
  Trip: belongs to
@@ -34,5 +32,10 @@ Trip:
 
 Activities:
  Days: belongs to
- 
-Hotel: belongs to
+
+Lodging:
+ Days: has many
+ Trip: has many through
+
+Budget:
+  Trip: has one
