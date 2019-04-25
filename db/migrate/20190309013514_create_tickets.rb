@@ -8,7 +8,9 @@ class CreateTickets < ActiveRecord::Migration[5.1]
       t.string :price
       t.string :airline
       t.string :reservation
-      t.integer :trip_id
+
+      t.references :trip, foreign_key: true
+      
     end
   end
 end
