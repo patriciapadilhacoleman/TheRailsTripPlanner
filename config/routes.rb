@@ -9,6 +9,18 @@ Rails.application.routes.draw do
     patch '/trips/:id', to: 'trips#update'
     delete '/trips/:id', to: 'trips#destroy'
 
-    root 'trips#index'
+    #root 'trips#index'
+    get '/login' => 'sessions#new', as: 'login'
+    post '/login' => 'sessions#create'
+    post '/logout' => 'sessions#destroy'
+    resources :users, only: [:new, :create]
+
+   root 'welcome#home'
+
+    get 'about', to: 'static#about'
+
+    resources :vacations, only: [:index] do
+      resources  :tickets
+  end
 
 end
