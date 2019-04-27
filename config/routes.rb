@@ -17,10 +17,13 @@ Rails.application.routes.draw do
 
    root 'welcome#home'
 
-    get 'about', to: 'static#about'
+   get '/about', to: 'static#about'
+   get '/contact', to: 'static#contact'
 
-    resources :vacations, only: [:index] do
-      resources  :tickets
-  end
+    resources :trips do
+      resources  :users, only: [:index, :show]
+      resources :tickets
+      resources :days
+    end
 
 end
