@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
-  
 
-  def require_logged_in
-    if !session[:user_id]
-      redirect_to login_path
+  protect_from_forgery with: :exception
+    before_action :current_user
+
+    def current_user
+      @user = (User.find_by(id: session[:user_id]) || User.new)
     end
-  end
 
-  def  current_user
-    @user ||= User.find(session[:user_id])
-  end
+    def logged_in?
+      current_user.id != nil
+    end
+
+    def require_logged_in
+      return redirect_to(controller: 'sessions', action: 'new') unless logged_in?
+    end
 end

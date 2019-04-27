@@ -26,4 +26,6 @@ Rails.application.routes.draw do
       resources :days
     end
 
+    resources :users, only: [:new, :create]
+
 end
