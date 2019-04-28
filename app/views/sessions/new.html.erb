@@ -1,7 +1,7 @@
 
 
 <body>
-  <div class="main">
+  <div class="main-form">
     <p class="sign" align="center">Log in</p>
 
 
@@ -15,7 +15,8 @@
       <%= f.submit "Log In", class:'submit'%>
 
 
-      <p><button type="button" name="sign-up"class="submit"><%= link_to(controller: 'users', action: 'new') { 'sign up' } %></button></p>
+      <p><button type="button" name="sign-up"class="submit" align="center"><%= link_to(controller: 'users', action: 'new') { 'sign up' } %></button></p>
+      <p><button type="button" name="facebook"class="submit"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></button></p>
 
       <% end %>
 

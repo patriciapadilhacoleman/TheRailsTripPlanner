@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:new, :create]
+    get '/auth/facebook/callback' => 'sessions#create_omni'
 
 end
