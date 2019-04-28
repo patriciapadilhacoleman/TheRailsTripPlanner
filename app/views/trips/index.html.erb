@@ -6,7 +6,7 @@
 
   <h1>Trips</h1>
 
-  <button type="button" name="new-trip" class='message-btn'></button><%= link_to 'Create Trip', new_trip_path %><%= link_to 'Create Trip', new_trip_path %>
+  <button type="button" name="new-trip" class='message-btn'><%= link_to 'Create Trip', new_trip_path %></button>
   <br />
 
   <% @trips.each do |trip| %>

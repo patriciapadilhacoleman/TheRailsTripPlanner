@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
     post '/logout' => 'sessions#destroy'
     get '/logout' => 'sessions#destroy'
-    resources :users, only: [:new, :create]
+
 
    root 'welcome#home'
 
@@ -27,7 +27,8 @@ Rails.application.routes.draw do
       resources :days
     end
 
-    resources :users, only: [:new, :create]
+    resources :users
+    
     match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
     match 'auth/failure', to: redirect('/'), via: [:get, :post]
     match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
