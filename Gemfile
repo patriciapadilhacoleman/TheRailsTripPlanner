@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry'
 
-gem 'devise'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 # Use ActiveStorage variant
