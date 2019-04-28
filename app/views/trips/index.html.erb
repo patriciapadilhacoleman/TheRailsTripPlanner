@@ -2,12 +2,11 @@
 <div class="main-form">
 
   <h1 class ='sign'>Hello,<%=@user.username%></h1>
-  <% binding.pry%>
 
-  <h1>Trips</h1>
+  <h2>Trips</h2>
 
-  <button type="button" name="new-trip" class='message-btn'><%= link_to 'Create Trip', new_trip_path %></button>
-  <br />
+  <button type="button" name="new-trip" class='submit-form'><%= link_to 'Create Trip', new_trip_path %></button>
+
 
   <% @trips.each do |trip| %>
 

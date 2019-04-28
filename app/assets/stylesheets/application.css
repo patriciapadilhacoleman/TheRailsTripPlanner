@@ -175,9 +175,12 @@ body {
       }
      table, th, td {
         border: 1px solid black;
+        border-radius: 5em;
         border-collapse: collapse;
         text-align: left;
         margin-left:0;
+        margin-top: 40px;
+        font-size: 20px;
      }
      .topnav {
         background-color: #333;

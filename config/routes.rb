@@ -27,8 +27,15 @@ Rails.application.routes.draw do
       resources :days
     end
 
-    resources :users
-    
+
+    get '/users', to: 'users#index'
+    get '/users/new', to: 'users#new', as: 'new_user'
+    post '/users', to: 'users#create'
+    get '/users/:id', to: 'users#show', as: 'user'
+    get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+    patch '/users/:id', to: 'users#update'
+    delete '/users/:id', to: 'users#destroy'
+
     match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
     match 'auth/failure', to: redirect('/'), via: [:get, :post]
     match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
