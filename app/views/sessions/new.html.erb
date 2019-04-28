@@ -12,9 +12,10 @@
 
       <%= f.password_field :password, class:"pass", placeholder:"Password" %>
 
-      <%= f.submit "Log In"%>
+      <%= f.submit "Log In", class:'submit'%>
 
-       Or <%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
+
+      <p><button type="button" name="sign-up"class="submit"><%= link_to(controller: 'users', action: 'new') { 'sign up' } %></button></p>
 
       <% end %>
 

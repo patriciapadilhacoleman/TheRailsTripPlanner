@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
 
     user = User.find_by(username: params[:user][:username])
 
-    user = user.try(:authenticate, params[:user][:password])
 
+    user = user.try(:authenticate, params[:user][:password])
 
     return redirect_to(controller: 'sessions', action: 'new') unless user
 
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
 
     @user = user
 
-    redirect_to controller: 'welcome', action: 'home'
+    redirect_to controller: 'trips', action: 'index'
+    
   end
 
   def destroy
