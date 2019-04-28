@@ -1,7 +1,13 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+
+    if logged_in?
+      
+      @trips = @user.trips
+    else
+      render :login
+    end
   end
 
   def show
