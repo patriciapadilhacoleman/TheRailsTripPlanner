@@ -30,9 +30,8 @@
           <td><%= trip.end_date %></td>
           <td><%= trip.budget %></td>
           <td>
-            <%= link_to 'View', trip %> |
             <%= link_to 'Edit', edit_trip_path(trip) %> |
-            <%= link_to 'Delete', trip, method: :delete, data: { confirm: 'For real?' } %>
+            <%= link_to "Delete", trip, method: :delete, data: { confirm: "Really?" } %>
           </td>
         </tr>
       <% end %>

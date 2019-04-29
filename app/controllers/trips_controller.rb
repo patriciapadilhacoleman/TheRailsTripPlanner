@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   def index
 
     if logged_in?
-      
+
       @trips = @user.trips
     else
       render :login
@@ -24,8 +24,10 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    binding.pry
     if @trip.save
-      redirect_to @trip
+      @user.trips << @trip
+      redirect_to controller: 'trips', action: 'index'
     else
       render :new
     end
@@ -34,7 +36,7 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     if @trip.update(trip_params)
-      redirect_to @trip
+      redirect_to trips_url
     else
       render :edit
     end

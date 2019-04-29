@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     get '/trips/:id', to: 'trips#show', as: 'trip'
     get '/trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
     patch '/trips/:id', to: 'trips#update'
-    delete '/trips/:id', to: 'trips#destroy'
+    delete '/trips/:id', to: 'trips#destroy', as: 'trip'
+    # delete '/people/:id', to: 'people#destroy', as:'person'
 
     #root 'trips#index'
     get '/login' => 'sessions#new', as: 'login'
