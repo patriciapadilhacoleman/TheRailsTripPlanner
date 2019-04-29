@@ -8,6 +8,18 @@
 
     <%= form_for @user, url: login_path, method: :post do |f| %>
 
+          <% if @user.errors.any? %>
+         <div id="error_explanation">
+           <h2>There were some errors:</h2>
+
+           <ul>
+             <% @user.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+             <% end %>
+           </ul>
+         </div>
+       <% end %>
+
       <%= f.text_field :username, class:"un", placeholder:'Username' %>
 
       <%= f.password_field :password, class:"pass", placeholder:"Password" %>

@@ -35,6 +35,7 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:id])
+    binding.pry
     if @trip.update(trip_params)
       redirect_to trips_url
     else
@@ -43,8 +44,10 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
+
+    binding.pry
+    @trip = Trip.find(params[:id]).destroy
+
     redirect_to trips_url
   end
 

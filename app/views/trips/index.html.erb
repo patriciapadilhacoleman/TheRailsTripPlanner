@@ -19,20 +19,25 @@
         <th>Beginning Date</th>
         <th>Ending Date</th>
         <th>Budget
+        <th>Action
       </tr>
     </thead>
 
     <tbody>
       <% @trips.each do |trip| %>
         <tr>
-          <td><%= trip.name %></td>
-          <td><%= trip.beg_date %></td>
-          <td><%= trip.end_date %></td>
-          <td><%= trip.budget %></td>
+
+          <%= form_for(trip) do |f| %>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.text_field :beg_date %></td>
+          <td><%= f.text_field :end_date %></td>
+          <td><%= f.text_field :budget %></td>
           <td>
-            <%= link_to 'Edit', edit_trip_path(trip) %> |
-            <%= link_to "Delete", trip, method: :delete, data: { confirm: "Really?" } %>
-          </td>
+            <%= f.submit %>
+          <% end %>
+          <%= form_tag trip_path(trip.id), method: "delete" do %>
+              <%= submit_tag "Delete" %>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

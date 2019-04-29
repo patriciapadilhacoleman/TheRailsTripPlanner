@@ -1,4 +1,7 @@
 <h1>Hi, <%= @trip.name %></h1>
 <%= form_tag ({controller: 'trips', action: 'show', method: 'post'}) do %>
-  
+
+<% end %>
+<<%= form_tag trip_path(@trip.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@trip.name}" %>
 <% end %>
