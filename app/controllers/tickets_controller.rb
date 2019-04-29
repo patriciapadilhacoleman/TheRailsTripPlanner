@@ -13,4 +13,33 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
+  def new
+    def new
+      @ticket = Trip.new
+    end
+
+    def edit
+      @ticket = Trip.find(params[:id])
+    end
+
+    def create
+      @ticket = Trip.new(ticket_params)
+      binding.pry
+      if @ticket.save
+        @trip.tickets << @ticket
+        redirect_to controller: 'trip', action: 'show'
+      else
+        render :new
+      end
+  end
+
+  private
+
+  def ticket_params
+    params.require(:ticket).permit(
+      :name, :beg_date, :end_date, :budget
+    )
+  end
+
+
 end
