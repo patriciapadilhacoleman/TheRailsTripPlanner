@@ -1,11 +1,9 @@
 
 <div class="main-form">
 
-  <h1 class ='sign'>Hello,<%=@user.username%></h1>
-
   <h2>Trips</h2>
 
-  <button type="button" name="new-trip" class='submit-form'><%= link_to 'Create Trip', new_trip_path %></button>
+  <button type="button" name="new-trip" class='submit-form'><%= link_to 'Create a Trip', new_trip_path %></button>
 
 
   <% @trips.each do |trip| %>
@@ -33,11 +31,12 @@
           <td><%= f.text_field :end_date %></td>
           <td><%= f.text_field :budget %></td>
           <td>
-            <%= f.submit %>
+            <%= f.submit "Update", class:"row-btn" %>
           <% end %>
           <%= form_tag trip_path(trip.id), method: "delete" do %>
-              <%= submit_tag "Delete" %>
+              <%= submit_tag "Delete", class:"row-btn" %>
           <% end %>
+          <button type="button" name="new-days" class='submit-btn'><%= link_to 'Plan Your Trip', trip_days_path(trip.id) %></button>
         </tr>
       <% end %>
     </tbody>

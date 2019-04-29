@@ -98,6 +98,16 @@ body {
        box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.04);
    }
 
+   .submit-btn {
+     background: #4CAF50;
+     font-family: 'Ubuntu', sans-serif;
+     border-radius: 2em;
+     font-size: 20px;
+     padding : 0 5px;
+     margin  : 10px;
+     width   : 240px;
+   }
+
    .submit-form {
      cursor: pointer;
 
@@ -119,11 +129,23 @@ body {
 
       border  : 1px solid green;
       font-size: 16px;
-      border-radius: 5em;
+      border-radius: 2em;
       padding : 0 5px;
       margin  : 10px;
       width   : 240px;
       background: none;
+    }
+
+    table input {
+      border: none;
+      font-size: 20px;
+
+    }
+
+    .row-btn{
+      background-color: #4CAF50;
+      font-family: 'Ubuntu', sans-serif;
+      border-radius: 2em;
     }
 
    .forgot {
@@ -174,8 +196,7 @@ body {
         position: relative;
       }
      table, th, td {
-        border: 1px solid black;
-        border-radius: 5em;
+        border: 2px solid black;
         border-collapse: collapse;
         text-align: left;
         margin-left:0;
