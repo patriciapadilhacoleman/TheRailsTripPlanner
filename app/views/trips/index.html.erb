@@ -36,7 +36,7 @@
           <%= form_tag trip_path(trip.id), method: "delete" do %>
               <%= submit_tag "Delete", class:"row-btn" %>
           <% end %>
-          <button type="button" name="new-days" class='submit-btn'><%= link_to 'Plan Your Trip', trip_days_path(trip.id) %></button>
+          <button type="button" name="new-days" class='submit-btn'><%= link_to 'Plan Your Trip', trip_path(trip.id) %></button>
         </tr>
       <% end %>
     </tbody>

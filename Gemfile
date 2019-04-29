@@ -33,6 +33,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
+
+gem 'figaro'
 # gem 'dotenv-rails'
 
 # Use ActiveStorage variant

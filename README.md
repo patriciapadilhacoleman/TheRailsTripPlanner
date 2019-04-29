@@ -37,5 +37,8 @@ Lodging:
  Days: has many
  Trip: has many through
 
-Budget:
-  Trip: has one
+Sign IN: the sign in is available using Omniauth and Facebook as
+well as by using Bcrypt for a separate Authentication.
+
+Nested Routes:
+View Days and Activities by Trip
