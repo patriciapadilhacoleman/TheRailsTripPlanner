@@ -12,6 +12,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+  
   end
 
   def new
@@ -24,11 +25,13 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    binding.pry
+
     if @trip.save
       @user.trips << @trip
+      binding.pry
       redirect_to controller: 'trips', action: 'index'
     else
+      binding.pry
       render :new
     end
   end
