@@ -1,8 +1,8 @@
 <div class="main-form">
 
-  <h1><%=@trip.name %></h1>
 
   <%= render partial: "form" %>
+
 </div>
 
 <div class="ticket-form">
@@ -11,6 +11,7 @@
 
    <% if @trip.tickets.count > 0 %>
 
+          <h2><%= @trip.name %></h2>
           <table>
             <thead>
             <tr>

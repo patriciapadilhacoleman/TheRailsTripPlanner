@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
 
 
     def new
-
+        @trip = Trip.find(params[:trip_id])
         @ticket = Ticket.new(trip_id: params[:trip_id])
     end
 
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
 
     def destroy
 
-      
+
       @ticket = Ticket.find(params[:id]).destroy
       flash[:notice] = "Ticket deleted."
       redirect_to trip_path(params[:trip_id]), alert: "Ticket added."

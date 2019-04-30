@@ -6,7 +6,7 @@ class TripsController < ApplicationController
 
       @trips = @user.trips
     else
-      render :login
+      redirect_to controller: 'sessions', action: 'new'
     end
   end
 

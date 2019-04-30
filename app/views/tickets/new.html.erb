@@ -1,18 +1,45 @@
+<h2>You are logged in as: <%= current_user.first_name %> <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit class="row-btn" value='Logout'>
+<% end %></h2>
+
 <div class="main-form">
-<%= form_for @ticket, controller: 'tickets', action: 'create' do |f| %>
 
- <%= f.hidden_field :trip_id %>
-  <%= f.text_field :dep_airport%>
-  <%= f.text_field :dep_time%>
-  <%= f.text_field :arr_airport%>
-  <%= f.text_field :arr_time%>
-  <%= f.text_field :price%>
-  <%= f.text_field :airline%>
-  <%= f.text_field :reservation%>
+<h2><%=@trip.name%></h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Departing Airport</th>
+      <th>Arrival Airport</th>
+      <th>Departing Date/Time</th>
+      <th>Arrival Date/Time</th>
+      <th>Price</th>
+      <th>Airline</th>
+      <th>Reservation</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= form_for @ticket, controller: 'tickets', action: 'create' do |f| %>
 
 
 
 
-  <%= f.submit "Create",class:'submit' %>
+      <tr>
+      <%= f.hidden_field :trip_id %>
+      <td><%= f.text_field :dep_airport%></td>
+      <td><%= f.text_field :dep_time%></td>
+      <td><%= f.text_field :arr_airport%></td>
+      <td><%= f.text_field :arr_time%></td>
+      <td><%= f.text_field :price%></td>
+      <td><%= f.text_field :airline%></td>
+      <td><%= f.text_field :reservation%></td>
+
+
+
+
+       <td><%= f.submit "Create",class:'submit-btn' %></td>
 <% end %>
+</tr>
+</table>
 </div>

@@ -1,11 +1,11 @@
 
-<h1>You are logged in as: <%= current_user.first_name %></h1>
-<%= form_tag user_path(current_user.id), method: "delete" do %>
-  <%= submit_tag "Delete", class:"submit-btn" %>
-  <% end %>
+<h2>You are logged in as: <%= current_user.first_name %> <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit class="row-btn" value='Logout'>
+<% end %></h2>
+
 <div class="main-form">
 
-  <h2>Trips</h2>
+  <h1>Trips</h1>
 
   <button type="button" name="new-trip" class='submit-form'><%= link_to 'Create a Trip', new_trip_path %></button>
 
@@ -31,13 +31,7 @@
 
         <tbody>
 
-            <% if trip.done(DateTime.now) %>
-              <tr class = "done">
-
-            <%else%>
-              <tr>
-            <%end%>
-
+             <tr>
               <%= form_for(trip) do |f| %>
               <td><%= f.text_field :name %></td>
               <td><%= f.text_field :beg_date %></td>
