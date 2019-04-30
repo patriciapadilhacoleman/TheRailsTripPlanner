@@ -45,9 +45,10 @@ class TripsController < ApplicationController
 
   def destroy
 
-    binding.pry
-    @trip = Trip.find(params[:id]).destroy
 
+    @trip = Trip.find(params[:id]).destroy
+    flash[:notice] = "Trip deleted."
+    binding.pry
     redirect_to trips_url
   end
 

@@ -8,37 +8,38 @@
 
   <% @trips.each do |trip| %>
 
-  <% end %>
+    <% if trip %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Beginning Date</th>
-        <th>Ending Date</th>
-        <th>Budget
-        <th>Action
-      </tr>
-    </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Beginning Date</th>
+            <th>Ending Date</th>
+            <th>Budget
+            <th>Action
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @trips.each do |trip| %>
-        <tr>
+        <tbody>
 
-          <%= form_for(trip) do |f| %>
-          <td><%= f.text_field :name %></td>
-          <td><%= f.text_field :beg_date %></td>
-          <td><%= f.text_field :end_date %></td>
-          <td><%= f.text_field :budget %></td>
-          <td>
-            <%= f.submit "Update", class:"row-btn" %>
+            <tr>
+
+              <%= form_for(trip) do |f| %>
+              <td><%= f.text_field :name %></td>
+              <td><%= f.text_field :beg_date %></td>
+              <td><%= f.text_field :end_date %></td>
+              <td><%= f.text_field :budget %></td>
+              <td>
+                <%= f.submit "Update", class:"row-btn" %>
+              <% end %>
+              <%= form_tag trip_path(trip.id), method: "delete" do %>
+                  <%= submit_tag "Delete", class:"row-btn" %>
+              <% end %>
+              <button type="button" name="new-days" class='submit-btn'><%= link_to 'Plan Your Trip', trip_path(trip.id) %></button>
+            </tr>
           <% end %>
-          <%= form_tag trip_path(trip.id), method: "delete" do %>
-              <%= submit_tag "Delete", class:"row-btn" %>
-          <% end %>
-          <button type="button" name="new-days" class='submit-btn'><%= link_to 'Plan Your Trip', trip_path(trip.id) %></button>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+        </tbody>
+      </table>
+      <%end%>
+    </div>

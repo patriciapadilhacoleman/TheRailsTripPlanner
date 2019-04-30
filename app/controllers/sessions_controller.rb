@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if params[:provider]
       user = User.create_with_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
-      redirect_to root_url
+      redirect_to controller: 'trips', action: 'index'
 
     else
       user = User.find_by(username: params[:user][:username])
@@ -24,8 +24,9 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    session.delete :user_id
 
+    session.delete :user_id
+    binding.pry
     redirect_to '/'
   end
 

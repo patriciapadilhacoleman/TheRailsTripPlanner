@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 
-  def new
+
     def new
       @ticket = Trip.new
     end
