@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :tickets, through: :trips
   has_secure_password
 
+  scope :admin, -> { where(admin: true) }
+
   def self.create_with_omniauth(auth)
 
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

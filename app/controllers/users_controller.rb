@@ -25,6 +25,24 @@ class UsersController < ApplicationController
     redirect_to controller: 'trips', action: 'index'
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+
+      # redirect_to users_url
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+
+    @user = User.find(params[:id]).destroy
+    flash[:notice] = "User deleted."
+    session[:user_id] = nil
+    redirect_to login_url
+  end
+
   private
 
   def user_params

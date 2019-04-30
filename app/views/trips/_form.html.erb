@@ -1,3 +1,5 @@
+<h1>You are logged in as: <%= current_user.first_name %></h1>
+
 <table>
   <thead>
     <tr>
@@ -19,7 +21,7 @@
         <td><%= f.text_field :end_date %></td>
         <td><%= f.text_field :budget %></td>
         <td>
-          <%= f.submit class:"form-btn" %>
+          <%= f.submit class:"submit-btn" %>
         <% end %>
         </td>
       </tr>

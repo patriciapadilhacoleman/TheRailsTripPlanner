@@ -11,9 +11,11 @@ class SessionsController < ApplicationController
       redirect_to controller: 'trips', action: 'index'
 
     else
+
+      binding.pry
       user = User.find_by(username: params[:user][:username])
       user = user.try(:authenticate, params[:user][:password])
-      binding.pry
+
       return redirect_to(controller: 'sessions', action: 'new') unless user
       session[:user_id] = user.id
       @user = user
@@ -25,15 +27,12 @@ class SessionsController < ApplicationController
 
   def destroy
 
-    session.delete :user_id
-    binding.pry
-    redirect_to '/'
+    session[:user_id] = nil
+    redirect_to login_url
   end
 
   private
 
-  def auth
-    request.env['omniauth.auth']
-  end
+  
 
 end
