@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post '/logout' => 'sessions#destroy'
     get '/logout' => 'sessions#destroy'
 
-
+   resources :tickets
    root 'welcome#home'
 
    get '/about', to: 'static#about'

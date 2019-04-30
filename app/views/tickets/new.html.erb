@@ -1,0 +1,17 @@
+<div class="main-form">
+<%= form_for @ticket, controller: 'tickets', action: 'create' do |f| %>
+
+
+  <%= f.text_field :dep_airport%>
+  <%= f.datetime_field :dep_time%>
+  <%= f.text_field :arr_airport%>
+  <%= f.datetime_field :arr_time%>
+  <%= f.float_field :price%>
+  <%= f.text_field :airline%>
+  <%= f.text_field :reservation%>
+
+
+
+  <%= f.submit "Create",class:'submit' %>
+<% end %>
+</div>

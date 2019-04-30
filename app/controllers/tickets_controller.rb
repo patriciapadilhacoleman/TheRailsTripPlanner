@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
 
 
     def new
-      @ticket = Trip.new
+      @ticket = Ticket.new
     end
 
     def edit
@@ -23,7 +23,7 @@ class TicketsController < ApplicationController
     end
 
     def create
-      @ticket = Trip.new(ticket_params)
+      @ticket = Ticket.new(ticket_params)
       binding.pry
       if @ticket.save
         @trip.tickets << @ticket
@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(
-      :name, :beg_date, :end_date, :budget
+      :dep_airport, :dep_time, :arr_airport, :arr_time, :price, :airline, :reservation
     )
   end
 
