@@ -12,7 +12,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-  
+
   end
 
   def new
@@ -28,19 +28,19 @@ class TripsController < ApplicationController
 
     if @trip.save
       @user.trips << @trip
-      binding.pry
+
       redirect_to controller: 'trips', action: 'index'
     else
-      binding.pry
+
       render :new
     end
   end
 
   def update
     @trip = Trip.find(params[:id])
-    binding.pry
     if @trip.update(trip_params)
-      redirect_to trips_url
+
+      # redirect_to trips_url
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class TripsController < ApplicationController
 
     @trip = Trip.find(params[:id]).destroy
     flash[:notice] = "Trip deleted."
-    binding.pry
+
     redirect_to trips_url
   end
 
@@ -67,9 +67,6 @@ class TripsController < ApplicationController
 
   end
 
-  def create_days
-     current_day = u.trips.find(2).days.create(date:'05062018', lodging_id: 1)
-     # if a lodging is not determined, save the date w the not assigned id = 1
-  end
+
 
 end

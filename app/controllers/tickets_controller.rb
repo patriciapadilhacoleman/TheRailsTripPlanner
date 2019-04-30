@@ -36,7 +36,7 @@ class TicketsController < ApplicationController
 
     def update
       @ticket = Ticket.find(params[:id])
-    
+
       if @ticket.update(ticket_params)
         redirect_to trip_path(current_trip_id), alert: "Ticket updated."
       else
@@ -46,10 +46,10 @@ class TicketsController < ApplicationController
 
     def destroy
 
-      binding.pry
+      
       @ticket = Ticket.find(params[:id]).destroy
       flash[:notice] = "Ticket deleted."
-      redirect_to trip_path(current_trip_id), alert: "Ticket added."
+      redirect_to trip_path(params[:trip_id]), alert: "Ticket added."
     end
 
 
@@ -62,7 +62,7 @@ class TicketsController < ApplicationController
   end
 
   def current_trip_id
-    binding.pry
+
     @trip = Trip.find(params[:ticket][:trip_id])
     @trip.id
 

@@ -1,9 +1,13 @@
 <div class="main-form">
 
+  <h1><%=@trip.name %></h1>
+
 <%= form_for @trip do |f| %>
-<h1> <%= f.label :name %></h1>
+  <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :beg_date %>
   <%= f.text_field :beg_date %>
+  <%= f.label :end_date %>
  <%= f.text_field :end_date %>
   <%= f.label :budget %>
   <%= f.text_field :budget %>
@@ -17,53 +21,46 @@
 
   <h1>Tickets</h1>
 
+   <% if @trip.tickets.count > 0 %>
 
-  <button type="button" name="new-ticket" class='submit-form'><%= link_to 'Create a Ticket', new_trip_ticket_path(@trip) %></button>
-
-  <% @trip.tickets.each do |ticket| %>
-
-
-
-      <table>
-        <thead>
-          <tr>
-            <th>Departing Airport</th>
-            <th>Arrival Airport</th>
-            <th>Departing Date/Time</th>
-            <th>Arrival Date/Time</th>
-            <th>Price</th>
-            <th>Airline</th>
-            <th>Reservation</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-
-        <tbody>
-
-           <% if ticket %>
-
+          <table>
+            <thead>
             <tr>
-
-              <%= form_for(ticket) do |f| %>
-                  <td><%= f.text_field :dep_airport%></td>
-                  <td><%= f.text_field :arr_airport%></td>
-                  <td><%= f.text_field :dep_time%></td>
-                  <td><%= f.text_field :arr_time%></td>
-                  <td><%= f.text_field :price%></td>
-                  <td><%= f.text_field :airline%></td>
-                  <td><%= f.text_field :reservation%></td>
-                  <%= f.hidden_field :trip_id %>
-              <td>  <%= f.submit "Update", class:"row-btn" %></td>
-              <% end %>
-              <td><%= form_tag trip_ticket_path(@trip.id, ticket.id), method: "delete" do %>
-                  <%= submit_tag "Delete", class:"row-btn" %></td>
-              <% end %>
+              <th>Departing Airport</th>
+              <th>Arrival Airport</th>
+              <th>Departing Date/Time</th>
+              <th>Arrival Date/Time</th>
+              <th>Price</th>
+              <th>Airline</th>
+              <th>Reservation</th>
+              <th>Action</th>
             </tr>
-          <%end%>
+          </thead>
+              <tbody>
+
+          <% @trip.tickets.each do |ticket| %>
+              <tr>
+                <%= form_for(ticket) do |f| %>
+                    <td><%= f.text_field :dep_airport%></td>
+                    <td><%= f.text_field :arr_airport%></td>
+                    <td><%= f.text_field :dep_time%></td>
+                    <td><%= f.text_field :arr_time%></td>
+                    <td><%= f.text_field :price%></td>
+                    <td><%= f.text_field :airline%></td>
+                    <td><%= f.text_field :reservation%></td>
+                    <%= f.hidden_field :trip_id %>
+                <td>  <%= f.submit "Update", class:"row-btn" %>
+                <% end %>
+                <%= form_tag trip_ticket_path(@trip.id, ticket.id), method: "delete" do %>
+                    <%= submit_tag "Delete", class:"row-btn" %>
+                <% end %>
+
+                </td>
+            <% end %>
+            </tr>
+
         </tbody>
       </table>
-
-  <% end %>
-
+    <% end %>
+    <button type="button" name="new-ticket" class='submit-form'><%= link_to 'Add a New Ticket', new_trip_ticket_path(@trip.id) %></button>
 </div>

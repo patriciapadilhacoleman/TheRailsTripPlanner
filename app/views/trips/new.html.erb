@@ -1,13 +1,6 @@
 
 <div class="main-form">
-<%= form_for @trip, controller: 'trips', action: 'create' do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <h1>Create a Trip</h1>
+  <%= render partial: "form" %>
 
-  <%= f.label :budget %>
-  <%= f.text_field :budget %>
-
-
-  <%= f.submit "Create",class:'submit' %>
-<% end %>
 </div>

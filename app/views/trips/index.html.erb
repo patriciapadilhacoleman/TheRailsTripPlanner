@@ -6,21 +6,25 @@
   <button type="button" name="new-trip" class='submit-form'><%= link_to 'Create a Trip', new_trip_path %></button>
 
 
-  <% @trips.each do |trip| %>
+  <% if @trips.count > 0 %>
 
-    <% if trip %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Beginning Date</th>
+          <th>Ending Date</th>
+          <th>Budget
+          <th>Action
+        </tr>
+      </thead>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Beginning Date</th>
-            <th>Ending Date</th>
-            <th>Budget
-            <th>Action
-          </tr>
-        </thead>
 
+
+
+    <% @trips.each do |trip| %>
+
+    
         <tbody>
 
             <tr>

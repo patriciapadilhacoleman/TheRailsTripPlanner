@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Beginning Date</th>
+      <th>Ending Date</th>
+      <th>Budget
+      <th>Action
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+
+        <%= form_for(@trip) do |f| %>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :beg_date %></td>
+        <td><%= f.text_field :end_date %></td>
+        <td><%= f.text_field :budget %></td>
+        <td>
+          <%= f.submit class:"form-btn" %>
+        <% end %>
+        </td>
+      </tr>
+
+  </tbody>
+</table>
