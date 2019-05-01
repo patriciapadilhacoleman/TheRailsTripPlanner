@@ -23,6 +23,12 @@ body {
        float: left;
    }
 
+   .field_with_errors {
+      padding: 2px;
+      background-color: red;
+      display: table;
+    }
+
    .ticket-form {
        background-color: #FFFFFF;
        /* width: 40%; */

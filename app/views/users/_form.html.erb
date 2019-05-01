@@ -1,29 +1,56 @@
 
 <%= form_for(@user) do |f| %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+  <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
 
-    <%= f.label :password %>
-    <%= f.text_field :password %>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
 
     <br>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
 
     <br>
-    <%= f.label :email%>
-    <%= f.text_field :email %>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
+
+    <div class="field">
+      <%= f.label :email%>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %>
+      <%= f.text_field :phone %>
+    </div>
 
     <br>
 

@@ -3,6 +3,15 @@ class User < ActiveRecord::Base
   has_many :tickets, through: :trips
   has_secure_password
 
+  validates :username, presence: true, uniqueness: true
+  validates :phone_number, length: { is: 10 }
+  validates :email, uniqueness: true
+  validates :first_name, :last_name, presence: true, length: { in:2..20 }
+  validates :phone_number, length: { is: 10 }
+
+
+
+
   scope :admin, -> { where(admin: true) }
 
   def self.create_with_omniauth(auth)
