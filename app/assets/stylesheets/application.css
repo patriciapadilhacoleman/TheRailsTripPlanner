@@ -25,7 +25,7 @@ body {
 
    .field_with_errors {
       padding: 2px;
-      background-color: red;
+      background-color: yellow;
       display: table;
     }
 
