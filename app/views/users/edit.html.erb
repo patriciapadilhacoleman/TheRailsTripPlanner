@@ -1,0 +1,11 @@
+<div class="main-form">
+
+  <h1>You are logged in as: <%= current_user.first_name %></h1>
+
+  <%= render partial: "form" %>
+
+  <%= form_tag user_path(@user.id), method: "delete" do %>
+    <%= submit_tag "Delete Account", class:"submit-btn" %>
+    <% end %>
+
+</div>

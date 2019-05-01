@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
 
-      # redirect_to users_url
+      redirect_to users_url
     else
       render :edit
     end
