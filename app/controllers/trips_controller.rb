@@ -28,6 +28,7 @@ class TripsController < ApplicationController
 
     if @trip.save
       @user.trips << @trip
+      binding.pry
 
       redirect_to controller: 'trips', action: 'index'
     else
