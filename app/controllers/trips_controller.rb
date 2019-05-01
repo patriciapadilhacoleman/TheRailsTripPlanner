@@ -28,7 +28,7 @@ class TripsController < ApplicationController
 
     if @trip.save
       @user.trips << @trip
-      binding.pry
+  
 
       redirect_to controller: 'trips', action: 'index'
     else
@@ -56,6 +56,12 @@ class TripsController < ApplicationController
     redirect_to trips_url
   end
 
+  def alltrips
+
+    @trips = Trip.all
+    render :index
+
+  end
   private
 
   def trip_params

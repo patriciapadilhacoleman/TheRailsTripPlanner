@@ -31,7 +31,7 @@
 
         <tbody>
 
-             <tr class="<%= @trips.done(DateTime.now).include?(trip) ? "done" : ''%>"
+             
               <%= form_for(trip) do |f| %>
               <td><%= f.text_field :name %></td>
               <td><%= f.text_field :beg_date %></td>

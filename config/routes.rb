@@ -19,6 +19,8 @@ Rails.application.routes.draw do
    resources :tickets
    root 'sessions#new'
 
+   get '/alltrips' =>'trips#alltrips'
+
    get '/about', to: 'static#about'
    get '/contact', to: 'static#contact'
 
