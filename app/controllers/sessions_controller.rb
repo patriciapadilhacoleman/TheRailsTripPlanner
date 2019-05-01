@@ -12,14 +12,26 @@ class SessionsController < ApplicationController
 
     else
 
-      binding.pry
-      user = User.find_by(username: params[:user][:username])
+      if user = User.find_by(username: params[:user][:username])
+
+      else
+          flash[:alert] = "This username is invalid!"
+      end
+
       user = user.try(:authenticate, params[:user][:password])
 
-      return redirect_to(controller: 'sessions', action: 'new') unless user
-      session[:user_id] = user.id
-      @user = user
-      redirect_to controller: 'trips', action: 'index'
+      if user
+        session[:user_id] = user.id
+        @user = user
+        redirect_to controller: 'trips', action: 'index'
+
+      else
+        flash[:alert] = "The password is invalid!"
+    
+        redirect_to controller: 'sessions', action: 'create'
+
+      end
+
     end
 
   end
@@ -33,6 +45,6 @@ class SessionsController < ApplicationController
 
   private
 
-  
+
 
 end

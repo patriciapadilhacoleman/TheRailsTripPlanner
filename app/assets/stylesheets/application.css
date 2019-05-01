@@ -29,6 +29,17 @@ body {
       display: table;
     }
 
+
+   .alert {
+     padding: 2px;
+     background-color: yellow;
+     border-radius: 1.5em;
+     box-shadow: 0px 11px 35px 4px rgba(0, 0, 0, 0.14);
+     margin-left: 27%;
+     width: 40%;
+     font-size: 16px;
+
+   }
    .ticket-form {
        background-color: #FFFFFF;
        /* width: 40%; */
@@ -47,6 +58,7 @@ body {
        font-family: 'Ubuntu', sans-serif;
        font-weight: bold;
        font-size: 23px;
+       margin-left: 42%;
    }
 
    .done{

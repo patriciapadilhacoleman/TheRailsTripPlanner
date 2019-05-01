@@ -2,29 +2,9 @@
 
 <body>
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '300860764143386',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.2'
-    });
 
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
   <div class="main-form">
-    <p class="sign" align="center">Log in</p>
+    <h2 class='sign'>Log In</h2>
 
 
 
@@ -45,6 +25,10 @@
       <%= f.text_field :username, class:"un", placeholder:'Username' %>
 
       <%= f.password_field :password, class:"pass", placeholder:"Password" %>
+
+      <% flash.each do |key, value| %>
+        <div class="alert"<%= key %>"><%= value %></div>
+      <% end %>
 
       <%= f.submit "Log In", class:'submit'%>
 
